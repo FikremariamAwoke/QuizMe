@@ -42,6 +42,7 @@ class _Question extends State<Question> {
     answers.insert(randomNumber, question.correctAnswer);
   }
 
+  // check if answer is correct
   int checkAnswer(index) {
     if (index == selectedIndex &&
         answers[selectedIndex] != question.correctAnswer) return -1;

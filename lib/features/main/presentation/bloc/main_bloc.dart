@@ -10,6 +10,7 @@ class MainBloc extends Bloc<MainEvent, MainState> {
   Stream<MainState> mapEventToState(
     MainEvent event,
   ) async* {
+    // show or hide drawer
     if (event is DrawerShowEvent) yield DrawerShow();
     if (event is DrawerHideEvent) yield DrawerHide();
   }

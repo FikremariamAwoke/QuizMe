@@ -21,6 +21,7 @@ class Body extends StatelessWidget {
       padding: const EdgeInsets.all(15),
       child: Column(
         children: [
+          // app name
           Row(
             children: [
               Text(INFO.APP_PREFIX,
@@ -30,6 +31,8 @@ class Body extends StatelessWidget {
             ],
           ),
           SizedBox(height: 5),
+
+          // app version
           Row(
             children: [
               Text(INFO.VERSION_PREFIX,
@@ -39,6 +42,8 @@ class Body extends StatelessWidget {
             ],
           ),
           SizedBox(height: 5),
+
+          // app built with
           Row(
             children: [
               Text(INFO.BUILT_WITH_PREFIX,
@@ -48,6 +53,8 @@ class Body extends StatelessWidget {
             ],
           ),
           SizedBox(height: 5),
+
+          // developer
           Row(
             children: [
               Text(INFO.DEVELOPER_PREFIX,
@@ -57,6 +64,8 @@ class Body extends StatelessWidget {
             ],
           ),
           SizedBox(height: 5),
+
+          // developer email
           Row(
             children: [
               Text(INFO.EMAIL_PREFIX,

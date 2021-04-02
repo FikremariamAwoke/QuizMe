@@ -10,12 +10,14 @@ import 'package:charts_flutter/flutter.dart' as charts;
 // models
 import '../../data/models/ChartData.dart';
 
+// convert data from local storage into bar chart data
 processData(stats) {
   List<charts.Series<ChartData, String>> _seriesChartData =
       new List<charts.Series<ChartData, String>>();
   List<charts.Series<ChartData, String>> _seriesChartData1 =
       new List<charts.Series<ChartData, String>>();
-  // chart
+
+  // incorrect answer data for bar chart 1
   var inCorrect = [
     new ChartData(
         category: 'Riddles',
@@ -39,6 +41,7 @@ processData(stats) {
         index: 5),
   ];
 
+  // incorrect answer data for bar chart 2
   var inCorrect1 = [
     new ChartData(
         category: 'Geography',
@@ -60,6 +63,7 @@ processData(stats) {
         index: 5),
   ];
 
+  // correct answer data for bar chart 1
   var correct = [
     new ChartData(
         category: 'Riddles',
@@ -80,6 +84,8 @@ processData(stats) {
             : 0,
         index: 10),
   ];
+
+  // correct answer data for bar chart 2
   var correct1 = [
     new ChartData(
         category: 'Geography',
@@ -100,6 +106,8 @@ processData(stats) {
             : 0,
         index: 10),
   ];
+
+  // total answer data for bar chart 1
   var total = [
     new ChartData(
         category: 'Riddles',
@@ -120,6 +128,8 @@ processData(stats) {
             : 0,
         index: 15),
   ];
+
+  // total answer data for bar chart 2
   var total1 = [
     new ChartData(
         category: 'Geography',
@@ -139,6 +149,7 @@ processData(stats) {
         index: 15),
   ];
 
+  // fill bar chart 1 data
   _seriesChartData.add(charts.Series(
     data: inCorrect,
     domainFn: (ChartData data, _) => data.category,
@@ -164,6 +175,7 @@ processData(stats) {
     fillColorFn: (_, __) => charts.ColorUtil.fromDartColor(Colors.blue),
   ));
 
+  // fill bar chart 2 data
   _seriesChartData1.add(charts.Series(
     data: inCorrect1,
     domainFn: (ChartData data, _) => data.category,
@@ -188,9 +200,12 @@ processData(stats) {
     fillPatternFn: (_, __) => charts.FillPatternType.solid,
     fillColorFn: (_, __) => charts.ColorUtil.fromDartColor(Colors.blue),
   ));
+
+  // add both chart datas to list
   List<List<charts.Series<ChartData, String>>> result =
       new List<List<charts.Series<ChartData, String>>>();
   result.add(_seriesChartData);
   result.add(_seriesChartData1);
+
   return result;
 }

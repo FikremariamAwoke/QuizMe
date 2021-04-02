@@ -38,6 +38,7 @@ class _HomeScreen extends State<HomeScreen> {
     super.initState();
     _controller = ScrollController();
 
+    // listen to controller
     _controller.addListener(() {
       if (_controller.offset > 220 && !_controller.position.outOfRange) {
         // SliverAppBar is collapsed show title
@@ -54,7 +55,8 @@ class _HomeScreen extends State<HomeScreen> {
     });
   }
 
-  showDrawer() {
+  // toggle drawer
+  toggleDrawer() {
     setState(() {
       if (isDrawerOpen) {
         xOffset = 0;
@@ -73,7 +75,7 @@ class _HomeScreen extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return BlocListener<MainBloc, MainState>(
       listener: (context, state) {
-        showDrawer();
+        toggleDrawer();
       },
       child: AnimatedContainer(
         transform: Matrix4.translationValues(xOffset, yOffset, 0)
@@ -87,6 +89,7 @@ class _HomeScreen extends State<HomeScreen> {
         child: CustomScrollView(
           controller: _controller,
           slivers: [
+            // collapsable appbar
             Container(
               child: SliverAppBar(
                 expandedHeight: MediaQuery.of(context).size.height * 0.3,
@@ -100,6 +103,7 @@ class _HomeScreen extends State<HomeScreen> {
                       color: Colors.black,
                     ),
                     onPressed: () {
+                      // toggle drawer when menu is pressed
                       if (!isDrawerOpen)
                         return BlocProvider.of<MainBloc>(context)
                             .add(DrawerShowEvent());
@@ -122,11 +126,14 @@ class _HomeScreen extends State<HomeScreen> {
                 ),
               ),
             ),
+
+            // list of categories
             SliverList(
                 delegate: SliverChildBuilderDelegate((context, index) {
               return CategoryContainer(
                 index: index,
                 callback: () {
+                  // hide drawer if it is open when navigating to questions page
                   if (isDrawerOpen)
                     BlocProvider.of<MainBloc>(context).add(DrawerHideEvent());
                 },

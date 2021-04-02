@@ -52,6 +52,7 @@ class _StatisticsScreenLayout extends State<StatisticsScreenLayout> {
         ),
         body: BlocBuilder<StatisticsBloc, StatisticsState>(
           builder: (context, state) {
+            // show charts if data is loaded
             if (state is StatisticsDataLoaded)
               return TabBarView(
                 children: [
@@ -63,6 +64,8 @@ class _StatisticsScreenLayout extends State<StatisticsScreenLayout> {
                   ),
                 ],
               );
+
+            // show loading while data is loading
             return Center(
               child: CircularProgressIndicator(
                 valueColor: new AlwaysStoppedAnimation<Color>(QUIZ.APP_COLOR),

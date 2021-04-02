@@ -12,6 +12,7 @@ class QuestionData {
       this.answers});
 }
 
+// "Tricky & Brain Riddles" category questions
 const riddles = [
   {
     "id": 1,

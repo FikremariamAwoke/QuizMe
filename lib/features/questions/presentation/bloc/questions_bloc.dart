@@ -47,6 +47,7 @@ class QuestionsBloc extends Bloc<QuestionsEvent, QuestionsState> {
         yield QuestionsLoaded(questions: questions.sublist(0, 10));
       } else {
         try {
+          // get questions from api
           var resp;
           if (category == "General Knowledge")
             resp = await _apiService.generalKnowledgeQuestions();

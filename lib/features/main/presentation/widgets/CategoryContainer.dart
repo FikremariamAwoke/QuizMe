@@ -26,6 +26,7 @@ class CategoryContainer extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         callback();
+        // route to questions page
         Navigator.of(context).pushNamed(Routes.QUESTIONS,
             arguments: CATEGORYLIST[index]['title']);
       },

@@ -29,7 +29,9 @@ class BarChartTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // get processed data
     var result = processData(stats);
+
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Container(

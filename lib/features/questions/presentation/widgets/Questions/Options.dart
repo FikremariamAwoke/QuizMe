@@ -19,12 +19,14 @@ class Options extends StatelessWidget {
   final int status;
   final VoidCallback press;
 
+  // gets option color. green if correct grey if not selected and red if incorrect
   getColor() {
     if (status == 0) return Colors.grey;
     if (status == 1) return Colors.green;
     if (status == -1) return Colors.red;
   }
 
+  // get right or wrong icon
   getIcon() {
     if (status == 1)
       return Icon(

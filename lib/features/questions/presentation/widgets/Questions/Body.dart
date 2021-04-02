@@ -41,6 +41,7 @@ class _Body extends State<Body> with SingleTickerProviderStateMixin {
   _Body(this.question);
   @override
   void initState() {
+    // initalize animation controller with 60 seconds
     controller = AnimationController(
         duration: const Duration(
           seconds: 60,
@@ -50,6 +51,8 @@ class _Body extends State<Body> with SingleTickerProviderStateMixin {
     animation = Tween(begin: 0.0, end: 1.0).animate(controller)
       ..addListener(() {
         setState(() {});
+
+        // if time for current question has ended go to next
         if (animation.value == 1.0) {
           goToNextPage();
         }
@@ -61,7 +64,9 @@ class _Body extends State<Body> with SingleTickerProviderStateMixin {
     return super.initState();
   }
 
+  // go to next page
   void goToNextPage() {
+    // check if there are unanswered questions
     if (currentIndex < (question.length)) {
       pageController.nextPage(
           duration: Duration(seconds: 1), curve: Curves.ease);
@@ -69,6 +74,7 @@ class _Body extends State<Body> with SingleTickerProviderStateMixin {
       controller.forward();
       currentIndex++;
     } else {
+      // if all questions are answered show score
       Navigator.of(context).pushReplacementNamed(Routes.SCORE,
           arguments:
               new Score(isCorrect, question.length, question[0].category));

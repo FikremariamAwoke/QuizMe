@@ -39,15 +39,10 @@ class _QuestionsScreenLayout extends State<QuestionsScreenLayout> {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
-        actions: [
-          FlatButton(
-              onPressed: () {},
-              child:
-                  Text('', style: TextStyle(color: Colors.white, fontSize: 16)))
-        ],
       ),
       body: BlocBuilder<QuestionsBloc, QuestionsState>(
         builder: (context, state) {
+          // show loading while data is loading
           if (state is QuestionsLoading)
             return Center(
               child: Column(
@@ -64,10 +59,14 @@ class _QuestionsScreenLayout extends State<QuestionsScreenLayout> {
                 ],
               ),
             );
+
+          // show question if data is loaded
           else if (state is QuestionsLoaded)
             return Body(
               question: state.questions,
             );
+
+          // show error if the bloc returns any
           else if (state is QuestionsError)
             return Center(
                 child: Center(

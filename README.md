@@ -1,16 +1,8 @@
-# quiz
+# QuizMe
 
-A new Flutter project.
+A Flutter project.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+QuizMe app is a Question-and-answer app that has different categories like Tricky & Brain Riddles, General Knowledge, Science: Computers, Geography, Art, and Sport. It is a quiz app that fetches questions from an API (with exception for Tricky & Brain Riddles category which has the questions in local storage) and asks the user the questions. It then displays the score and stores the result for user statistics which can be viewed by the user.
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.

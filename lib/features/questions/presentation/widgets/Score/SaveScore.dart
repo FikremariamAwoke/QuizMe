@@ -9,6 +9,7 @@ import 'package:localstorage/localstorage.dart';
 // models
 import '../../../data/models/Score.dart';
 
+// save score for statistics
 saveScore(Score score) {
   if (score.category == 'Tricky & Brain Riddles') {
     _save(score, 'riddles');
@@ -25,6 +26,7 @@ saveScore(Score score) {
   }
 }
 
+// save score to local storage based on category
 _save(Score score, categoryName) async {
   final LocalStorage storage = new LocalStorage('Quiz');
   int prevCorrect = 0;

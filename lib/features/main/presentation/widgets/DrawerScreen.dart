@@ -49,7 +49,10 @@ class _DrawerScreen extends State<DrawerScreen> {
                 for (var element in DRAWERLIST)
                   InkWell(
                     onTap: () {
+                      //hide drawer
                       BlocProvider.of<MainBloc>(context).add(DrawerHideEvent());
+
+                      // go to statistics page
                       if (element['title'] == DRAWERLIST[1]['title'])
                         Navigator.of(context).pushNamed(Routes.STATISTICS);
                     },

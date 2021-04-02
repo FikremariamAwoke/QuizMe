@@ -25,7 +25,9 @@ class AboutDrawerIcon extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
+        //hide drawer
         BlocProvider.of<MainBloc>(context).add(DrawerHideEvent());
+        // navigate to about page
         Navigator.of(context).pushNamed(Routes.About);
       },
       child: Row(

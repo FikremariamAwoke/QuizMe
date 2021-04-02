@@ -23,7 +23,9 @@ class PieChartTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // get processed data
     var _seriesPieData = processData(stats);
+
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Container(
