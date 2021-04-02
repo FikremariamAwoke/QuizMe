@@ -21,6 +21,8 @@ class StatisticsBloc extends Bloc<StatisticsEvent, StatisticsState> {
 
       // get data from storage
       final LocalStorage storage = new LocalStorage('Quiz');
+      await storage.ready;
+
       Stats stats = new Stats(
         riddlesCorrectlyAnswered:
             await storage.getItem("riddlesCorrectlyAnswered"),

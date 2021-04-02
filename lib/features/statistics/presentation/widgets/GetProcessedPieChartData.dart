@@ -6,6 +6,7 @@
 
 import 'package:flutter/Material.dart';
 import 'package:charts_flutter/flutter.dart' as charts;
+import 'dart:math';
 
 // models
 import '../../data/models/PieData.dart';
@@ -33,33 +34,35 @@ processData(stats) {
   if (stats.riddlesTotalAnswered != null)
     data.add(new PieData(
         category: "Tricks & Riddles",
-        value: (100 * stats.riddlesTotalAnswered) / total,
+        value: roundDouble((100 * stats.riddlesTotalAnswered) / total, 2),
         color: Color(0xff3366cc)));
   if (stats.generalKnowledgeTotalAnswered != null)
     data.add(new PieData(
         category: "General Knowledge",
-        value: (100 * stats.generalKnowledgeTotalAnswered) / total,
+        value:
+            roundDouble((100 * stats.generalKnowledgeTotalAnswered) / total, 2),
         color: Color(0xff990099)));
   if (stats.computerScienceTotalAnswered != null)
     data.add(new PieData(
         category: "Computer Science",
-        value: (100 * stats.computerScienceTotalAnswered) / total,
+        value:
+            roundDouble((100 * stats.computerScienceTotalAnswered) / total, 2),
         color: Color(0xff109618)));
   if (stats.geographyTotalAnswered != null)
     data.add(new PieData(
         category: "Geography",
-        value: (100 * stats.geographyTotalAnswered) / total,
+        value: roundDouble((100 * stats.geographyTotalAnswered) / total, 2),
         color: Color(0xfffdbe19)));
   if (stats.artTotalAnswered != null)
     data.add(new PieData(
         category: "Art",
-        value: (100 * stats.artTotalAnswered) / total,
+        value: roundDouble((100 * stats.artTotalAnswered) / total, 2),
         color: Color(0xffff9900)));
   if (stats.sportTotalAnswered != null)
     data.add(
       new PieData(
           category: "Sport",
-          value: (100 * stats.sportTotalAnswered) / total,
+          value: roundDouble((100 * stats.sportTotalAnswered) / total, 2),
           color: Color(0xffdc3912)),
     );
   _seriesPieData.add(charts.Series(
@@ -71,4 +74,9 @@ processData(stats) {
     labelAccessorFn: (PieData data, _) => "${data.value}",
   ));
   return _seriesPieData;
+}
+
+double roundDouble(double value, int places) {
+  double mod = pow(10.0, places);
+  return ((value * mod).round().toDouble() / mod);
 }

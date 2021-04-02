@@ -29,6 +29,7 @@ _save(Score score, categoryName) async {
   final LocalStorage storage = new LocalStorage('Quiz');
   int prevCorrect = 0;
   int prevTotal = 0;
+  await storage.ready;
   prevCorrect = await storage.getItem(categoryName + "CorrectlyAnswered");
   prevTotal = await storage.getItem(categoryName + "TotalAnswered");
   await storage.setItem(categoryName + "CorrectlyAnswered",
