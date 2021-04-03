@@ -6,6 +6,7 @@
 
 import 'package:flutter/material.dart';
 
+// circular dot
 class BarChartColorIndicator extends StatelessWidget {
   final Color color;
   const BarChartColorIndicator({

@@ -93,7 +93,10 @@ class _Body extends State<Body> with SingleTickerProviderStateMixin {
     return Container(
       child: Column(
         children: [
+          // timer
           Timer(animation: animation),
+
+          // header
           QuestionHeader(
               currentIndex: currentIndex, questionTotal: question.length),
           Container(
@@ -103,6 +106,8 @@ class _Body extends State<Body> with SingleTickerProviderStateMixin {
               color: Colors.grey[300],
             ),
           ),
+
+          // questions page view
           Expanded(
               child: PageView.builder(
                   itemCount: question.length,

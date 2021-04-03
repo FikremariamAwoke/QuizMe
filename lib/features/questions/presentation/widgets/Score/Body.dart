@@ -25,16 +25,21 @@ class Body extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
+          // category
           Text(
             score.category,
             style: TextStyle(fontSize: 30, fontWeight: FontWeight.w400),
           ),
           SizedBox(height: 50),
+
+          // score header
           Text(SCORE_HEADER_TEXT,
               style: TextStyle(
                 fontSize: 28,
                 color: Colors.black,
               )),
+
+          // result
           Text.rich(
             TextSpan(
               text: "${score.isCorrect}",

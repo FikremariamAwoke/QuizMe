@@ -38,11 +38,14 @@ class BarChartTab extends StatelessWidget {
         width: double.infinity,
         child: Column(
           children: [
+            // title
             Text(
               BARCHART_TITLE,
               style: TextStyle(fontSize: 20),
             ),
             SizedBox(height: 30),
+
+            // chart info
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
@@ -61,6 +64,8 @@ class BarChartTab extends StatelessWidget {
               ],
             ),
             SizedBox(height: 30),
+
+            // chart
             ChartStat(seriesChartData: result[0]),
             ChartStat(seriesChartData: result[1]),
           ],

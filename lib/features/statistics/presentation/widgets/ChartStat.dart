@@ -10,6 +10,7 @@ import 'package:charts_flutter/flutter.dart' as charts;
 // models
 import '../../data/models/ChartData.dart';
 
+// bar chart
 class ChartStat extends StatelessWidget {
   const ChartStat({
     Key key,

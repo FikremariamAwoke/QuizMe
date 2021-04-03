@@ -60,10 +60,13 @@ class _Question extends State<Question> {
           color: Colors.white, borderRadius: BorderRadius.circular(20)),
       child: Column(
         children: [
+          // question
           Text(
             question.question,
             style: TextStyle(fontSize: 20),
           ),
+
+          // list of choices
           Expanded(
             child: ListView(
               children: [

@@ -32,11 +32,14 @@ class PieChartTab extends StatelessWidget {
         width: double.infinity,
         child: Column(
           children: [
+            // title
             Text(
               PIECHART_TITLE,
               style: TextStyle(fontSize: 20),
             ),
             SizedBox(height: 30),
+
+            // if there is no data show no data message
             (_seriesPieData != null)
                 ? Expanded(
                     child: charts.PieChart(
@@ -60,6 +63,8 @@ class PieChartTab extends StatelessWidget {
                               labelPosition: charts.ArcLabelPosition.inside)
                         ]),
                   ))
+
+                // if there is data show pie chart
                 : Expanded(
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
